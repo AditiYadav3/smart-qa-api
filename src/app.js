@@ -6,6 +6,9 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 app.use(express.json());
 
+// Health check
+app.get('/', (req, res) => res.json({ status: 'ok', message: 'Smart Q&A API is running' }));
+
 // Routes
 app.use('/api/docs', require('./routes/docs'));
 app.use('/api/auth', require('./routes/auth'));
