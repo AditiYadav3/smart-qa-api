@@ -13,7 +13,7 @@ async function ask(req, res, next) {
 
     const result = await answerQuestion(question);
 
-    await saveHistory(req.user.id, result);
+    await saveHistory(req.user.id, { question, ...result });
     logAskRequest(req.user.id, question, result.latencyMs, result.confidence);
 
     res.json({
