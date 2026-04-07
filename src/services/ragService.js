@@ -28,7 +28,7 @@ async function answerQuestion(question) {
   const prompt = await buildPrompt(question, docs);
 
   const llm = new ChatGroq({
-    model: process.env.LLM_MODEL || 'llama3-8b-8192',
+    model: process.env.LLM_MODEL || 'llama-3.1-8b-instant',
     apiKey: process.env.GROQ_API_KEY,
   });
 
